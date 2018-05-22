@@ -60,9 +60,9 @@ public class InstructionsOption extends JFrame {
 		lblColumnOrLine.setBounds(248, 386, 383, 14);
 		contentPane.add(lblColumnOrLine);
 		
-		JButton btnVoltar = new JButton("<--");
-		btnVoltar.setBounds(10, 489, 89, 23);
-		contentPane.add(btnVoltar);
+		JButton btnBack = new JButton("<--");
+		btnBack.setBounds(10, 489, 89, 23);
+		contentPane.add(btnBack);
 		
 	}
 }
