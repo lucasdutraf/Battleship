@@ -1,4 +1,4 @@
-package ep2_2018_1;
+package ep2_2018_1.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -10,6 +10,7 @@ import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import javax.swing.JScrollBar;
 import java.awt.Canvas;
+import javax.swing.JButton;
 
 public class InstructionsOption extends JFrame {
 
@@ -58,6 +59,10 @@ public class InstructionsOption extends JFrame {
 		JLabel lblColumnOrLine = new JLabel("Atacar uma linha/coluna completa do tabuleiro.");
 		lblColumnOrLine.setBounds(248, 386, 383, 14);
 		contentPane.add(lblColumnOrLine);
+		
+		JButton btnVoltar = new JButton("<--");
+		btnVoltar.setBounds(10, 489, 89, 23);
+		contentPane.add(btnVoltar);
 		
 	}
 }

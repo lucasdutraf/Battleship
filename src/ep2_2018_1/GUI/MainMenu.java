@@ -1,4 +1,4 @@
-package ep2_2018_1;
+package ep2_2018_1.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
