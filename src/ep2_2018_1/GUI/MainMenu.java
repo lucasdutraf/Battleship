@@ -44,9 +44,9 @@ public class MainMenu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnJogar = new JButton("JOGAR");
-		btnJogar.setBounds(344, 112, 137, 23);
-		contentPane.add(btnJogar);
+		JButton btnPlay = new JButton("JOGAR");
+		btnPlay.setBounds(344, 112, 137, 23);
+		contentPane.add(btnPlay);
 		
 		JButton btnInstructions = new JButton("INSTRU\u00C7\u00D5ES");
 		btnInstructions.setBounds(344, 216, 137, 23);
