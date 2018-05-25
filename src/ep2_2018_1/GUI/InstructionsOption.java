@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollBar;
 import java.awt.Canvas;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class InstructionsOption extends JFrame {
 
