@@ -54,8 +54,7 @@ public class FileChooser extends JFrame {
 		Button button = new Button("New button");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFileChooser ChoosingFile = new JFileChooser();
-				ChoosingFile.showOpenDialog(this);
+
 			}
 		});
 		button.setBounds(532, 267, 70, 22);
