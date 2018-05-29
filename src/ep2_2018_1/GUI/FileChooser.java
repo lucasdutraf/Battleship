@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.Button;
 
@@ -18,6 +19,7 @@ public class FileChooser extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -39,6 +41,13 @@ public class FileChooser extends JFrame {
 	 * Create the frame.
 	 */
 	public FileChooser() {
+		getContentPane().setLayout(null);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(71, 234, 218, 21);
+		getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 854, 589);
 		contentPane = new JPanel();
@@ -54,10 +63,9 @@ public class FileChooser extends JFrame {
 		Button button = new Button("New button");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 			}
 		});
-		button.setBounds(532, 267, 70, 22);
+		button.setBounds(502, 262, 78, 25);
 		contentPane.add(button);
 	}
 }
