@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Label;
 
 public class InstructionsOption extends JFrame {
 
@@ -92,6 +93,11 @@ public class InstructionsOption extends JFrame {
 		});
 		btnSair.setBounds(727, 489, 89, 23);
 		contentPane.add(btnSair);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(InstructionsOption.class.getResource("/ep2_2018_1/images/vara.png")));
+		lblNewLabel.setBounds(139, 116, 50, 50);
+		contentPane.add(lblNewLabel);
 		
 	}
 }

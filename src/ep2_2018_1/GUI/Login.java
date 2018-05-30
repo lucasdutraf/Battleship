@@ -18,6 +18,8 @@ import java.awt.Choice;
 import javax.swing.JSeparator;
 import javax.swing.JTextPane;
 import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class Login extends JFrame {
 
@@ -101,21 +103,6 @@ public class Login extends JFrame {
 		btnExit.setBounds(459, 315, 89, 23);
 		contentPane.add(btnExit);
 		
-		JRadioButton rdbtnEasy = new JRadioButton("Iniciante");
-		rdbtnEasy.setFont(new Font("Top Secret", Font.PLAIN, 11));
-		rdbtnEasy.setBounds(230, 245, 89, 23);
-		contentPane.add(rdbtnEasy);
-		
-		JRadioButton rdbtnMedium = new JRadioButton("Experiente");
-		rdbtnMedium.setFont(new Font("Top Secret", Font.PLAIN, 11));
-		rdbtnMedium.setBounds(321, 245, 98, 23);
-		contentPane.add(rdbtnMedium);
-		
-		JRadioButton rdbtnDifcil = new JRadioButton("Insano");
-		rdbtnDifcil.setFont(new Font("Top Secret", Font.PLAIN, 11));
-		rdbtnDifcil.setBounds(421, 245, 67, 23);
-		contentPane.add(rdbtnDifcil);
-		
 		JButton btnJogar = new JButton("Jogar");
 		btnJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -127,5 +114,10 @@ public class Login extends JFrame {
 		btnJogar.setFont(new Font("Top Secret", Font.PLAIN, 11));
 		btnJogar.setBounds(216, 315, 89, 23);
 		contentPane.add(btnJogar);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Iniciante", "Experiente", "Insano"}));
+		comboBox.setBounds(216, 242, 188, 20);
+		contentPane.add(comboBox);
 	}
 }
