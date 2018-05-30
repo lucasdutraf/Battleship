@@ -10,12 +10,20 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Choice;
+import javax.swing.JSeparator;
+import javax.swing.JTextPane;
+import javax.swing.JRadioButton;
 
 public class Login extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField nameField;
+	private JTextField nickField;
 
 	/**
 	 * Launch the application.
@@ -37,41 +45,87 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		setBackground(new Color(100, 149, 237));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 594, 388);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(127, 255, 212));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Top Secret", Font.PLAIN, 14));
 		lblNome.setBounds(127, 88, 46, 14);
 		contentPane.add(lblNome);
 		
-		textField = new JTextField();
-		textField.setBounds(198, 85, 206, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		nameField = new JTextField();
+		nameField.setBounds(198, 85, 206, 20);
+		contentPane.add(nameField);
+		nameField.setColumns(10);
 		
 		JLabel lblNick = new JLabel("Nick:");
+		lblNick.setFont(new Font("Top Secret", Font.PLAIN, 14));
 		lblNick.setBounds(127, 168, 46, 14);
 		contentPane.add(lblNick);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(198, 165, 206, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		nickField = new JTextField();
+		nickField.setBounds(198, 165, 206, 20);
+		contentPane.add(nickField);
+		nickField.setColumns(10);
 		
-		JLabel lblDificuldade = new JLabel("Dificuldade:");
-		lblDificuldade.setBounds(127, 248, 56, 14);
-		contentPane.add(lblDificuldade);
+		JLabel lblLevel = new JLabel("Dificuldade:");
+		lblLevel.setFont(new Font("Top Secret", Font.PLAIN, 14));
+		lblLevel.setBounds(114, 248, 113, 14);
+		contentPane.add(lblLevel);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(237, 245, 130, 20);
-		contentPane.add(spinner);
+		JButton btnBack = new JButton("Voltar");
+		btnBack.setFont(new Font("Top Secret", Font.PLAIN, 11));
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MainMenu main = new MainMenu();
+				main.setVisible(true);
+				dispose();
+			}
+		});
+		btnBack.setBounds(10, 315, 89, 23);
+		contentPane.add(btnBack);
 		
-		JButton button = new JButton("<---");
-		button.setBounds(10, 315, 89, 23);
-		contentPane.add(button);
+		JButton btnExit = new JButton("Sair");
+		btnExit.setFont(new Font("Top Secret", Font.PLAIN, 11));
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		btnExit.setBounds(459, 315, 89, 23);
+		contentPane.add(btnExit);
+		
+		JRadioButton rdbtnEasy = new JRadioButton("Iniciante");
+		rdbtnEasy.setFont(new Font("Top Secret", Font.PLAIN, 11));
+		rdbtnEasy.setBounds(230, 245, 89, 23);
+		contentPane.add(rdbtnEasy);
+		
+		JRadioButton rdbtnMedium = new JRadioButton("Experiente");
+		rdbtnMedium.setFont(new Font("Top Secret", Font.PLAIN, 11));
+		rdbtnMedium.setBounds(321, 245, 98, 23);
+		contentPane.add(rdbtnMedium);
+		
+		JRadioButton rdbtnDifcil = new JRadioButton("Insano");
+		rdbtnDifcil.setFont(new Font("Top Secret", Font.PLAIN, 11));
+		rdbtnDifcil.setBounds(421, 245, 67, 23);
+		contentPane.add(rdbtnDifcil);
+		
+		JButton btnJogar = new JButton("Jogar");
+		btnJogar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Game game = new Game();
+				game.setVisible(true);
+				dispose();
+			}
+		});
+		btnJogar.setFont(new Font("Top Secret", Font.PLAIN, 11));
+		btnJogar.setBounds(216, 315, 89, 23);
+		contentPane.add(btnJogar);
 	}
 }

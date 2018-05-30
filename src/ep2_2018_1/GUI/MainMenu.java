@@ -13,6 +13,9 @@ import javax.swing.SwingConstants;
 import java.awt.Component;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainMenu extends JFrame {
 
@@ -50,20 +53,38 @@ public class MainMenu extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnPlay = new JButton("JOGAR");
+		btnPlay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		btnPlay.setFont(new Font("Top Secret", Font.PLAIN, 11));
 		btnPlay.setBounds(324, 281, 137, 23);
 		contentPane.add(btnPlay);
 		
-		JButton btnInstructions = new JButton("INSTRU\u00C7\u00D5ES");
+		JButton btnInstructions = new JButton("COMO JOGAR");
+		btnInstructions.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				InstructionsOption howto = new InstructionsOption();
+				howto.setVisible(true);
+				dispose();
+			}
+		});
+		btnInstructions.setFont(new Font("Top Secret", Font.PLAIN, 11));
 		btnInstructions.setBounds(324, 361, 137, 23);
 		contentPane.add(btnInstructions);
 		
 		JButton btnInfos = new JButton("PLACARES");
+		btnInfos.setFont(new Font("Top Secret", Font.PLAIN, 11));
 		btnInfos.setBounds(324, 445, 137, 23);
 		btnInfos.setAlignmentX(2.0f);
 		btnInfos.setAlignmentY(2.0f);
 		contentPane.add(btnInfos);
 		
 		JLabel footer = new JLabel("Lucas Dutra 17/0050939");
+		footer.setFont(new Font("Magneto", Font.PLAIN, 11));
 		footer.setBounds(10, 525, 183, 14);
 		contentPane.add(footer);
 		
