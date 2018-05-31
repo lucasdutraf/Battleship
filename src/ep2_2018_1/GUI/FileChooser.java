@@ -14,12 +14,17 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.Button;
+import java.awt.Color;
+import java.awt.Canvas;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class FileChooser extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textFieldPath;
 	private JTextField textField_1;
+	private JButton btnComear;
 
 	/**
 	 * Launch the application.
@@ -49,23 +54,45 @@ public class FileChooser extends JFrame {
 		textField_1.setColumns(10);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 854, 589);
+		setBounds(100, 100, 594, 388);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(127, 255, 212));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(211, 267, 272, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldPath = new JTextField();
+		textFieldPath.setBounds(101, 239, 272, 20);
+		contentPane.add(textFieldPath);
+		textFieldPath.setColumns(10);
 		
-		Button button = new Button("New button");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JButton btnChoose = new JButton("Escolher ");
+		btnChoose.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				btnChooseActionPerformed(evt);
+			}
+
+			private void btnChooseActionPerformed(ActionEvent evt) {
+				JFileChooser choosingFile = new JFileChooser();
+				choosingFile.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				choosingFile.showOpenDialog(null);
+				File file = choosingFile.getSelectedFile();
+				textFieldPath.setText(file.getPath());
+				
 			}
 		});
-		button.setBounds(502, 262, 78, 25);
-		contentPane.add(button);
+		btnChoose.setBounds(383, 238, 89, 23);
+		contentPane.add(btnChoose);
+		
+		btnComear = new JButton("Come\u00E7ar!");
+		btnComear.setBounds(221, 315, 89, 23);
+		contentPane.add(btnComear);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(FileChooser.class.getResource("/ep2_2018_1/images/chooseyourmap.jpg")));
+		lblNewLabel.setBounds(10, 23, 521, 157);
+		contentPane.add(lblNewLabel);
+                              
+
 	}
 }
