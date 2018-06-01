@@ -17,15 +17,10 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class MainMenu extends JFrame {
+public class MainMenu extends JFrame implements Runnable {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					MainMenu frame = new MainMenu();
@@ -34,12 +29,7 @@ public class MainMenu extends JFrame {
 					e.printStackTrace();
 				}
 			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public MainMenu() {
 		
 		setForeground(Color.CYAN);

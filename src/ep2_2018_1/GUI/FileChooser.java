@@ -19,18 +19,14 @@ import java.awt.Canvas;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-public class FileChooser extends JFrame {
+public class FileChooser extends JFrame implements Runnable{
 
 	private JPanel contentPane;
 	private JTextField textFieldPath;
 	private JTextField textField_1;
 	private JButton btnComear;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+
 			public void run() {
 				try {
 					FileChooser frame = new FileChooser();
@@ -39,8 +35,6 @@ public class FileChooser extends JFrame {
 					e.printStackTrace();
 				}
 			}
-		});
-	}
 
 	/**
 	 * Create the frame.
