@@ -19,15 +19,11 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Label;
 
-public class InstructionsOption extends JFrame {
+public class InstructionsOption extends JFrame implements Runnable{
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+
 			public void run() {
 				try {
 					InstructionsOption frame = new InstructionsOption();
@@ -35,13 +31,10 @@ public class InstructionsOption extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
-		});
-	}
+		}
 
-	/**
-	 * Create the frame.
-	 */
+
+
 	public InstructionsOption() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

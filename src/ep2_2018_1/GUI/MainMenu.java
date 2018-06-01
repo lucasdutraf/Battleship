@@ -41,6 +41,7 @@ public class MainMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public MainMenu() {
+		
 		setForeground(Color.CYAN);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

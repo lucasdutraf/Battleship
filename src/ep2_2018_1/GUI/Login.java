@@ -106,8 +106,8 @@ public class Login extends JFrame {
 		JButton btnJogar = new JButton("Jogar");
 		btnJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Game game = new Game();
-				game.setVisible(true);
+				FileChooser fc = new FileChooser();
+				fc.setVisible(true);
 				dispose();
 			}
 		});
