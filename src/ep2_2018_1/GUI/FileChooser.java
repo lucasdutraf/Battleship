@@ -40,6 +40,7 @@ public class FileChooser extends JFrame implements Runnable{
 	 * Create the frame.
 	 */
 	public FileChooser() {
+		FileReader filereader = new FileReader();
 		getContentPane().setLayout(null);
 		
 		textField_1 = new JTextField();
@@ -72,7 +73,7 @@ public class FileChooser extends JFrame implements Runnable{
 				choosingFile.showOpenDialog(null);
 				File file = choosingFile.getSelectedFile();
 				textFieldPath.setText(file.getPath());
-				
+				filereader.setPath(file.getPath());
 			}
 		});
 		btnChoose.setBounds(383, 238, 89, 23);
