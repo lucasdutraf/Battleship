@@ -1,51 +1,26 @@
 package ep2_2018_1.GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JSpinner;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Choice;
-import javax.swing.JSeparator;
-import javax.swing.JTextPane;
-import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-public class Login extends JFrame {
+public class Login extends JFrame{
 
 	private JPanel contentPane;
 	private JTextField nameField;
 	private JTextField nickField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Login frame = new Login();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Login() {
 		setBackground(new Color(100, 149, 237));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,9 +81,11 @@ public class Login extends JFrame {
 		JButton btnJogar = new JButton("Jogar");
 		btnJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FileChooser fc = new FileChooser();
-				fc.setVisible(true);
-				dispose();
+//				FileChooser fc = new FileChooser();
+//				fc.setVisible(true);
+//				dispose();
+				FileChooser filechooser = new FileChooser();
+				filechooser.setVisible(true);
 			}
 		});
 		btnJogar.setFont(new Font("Top Secret", Font.PLAIN, 11));

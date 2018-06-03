@@ -1,34 +1,21 @@
 package ep2_2018_1.GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.BoxLayout;
-import javax.swing.SwingConstants;
-import java.awt.Component;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class MainMenu extends JFrame implements Runnable {
+public class MainMenu extends JFrame{
 
 	private JPanel contentPane;
 
-			public void run() {
-				try {
-					MainMenu frame = new MainMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
 
 	public MainMenu() {
 		
@@ -46,8 +33,8 @@ public class MainMenu extends JFrame implements Runnable {
 		JButton btnPlay = new JButton("JOGAR");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Login login = new Login();
-				login.setVisible(true);
+				FileChooser filechooser = new FileChooser();
+				filechooser.setVisible(true);
 				dispose();
 			}
 		});

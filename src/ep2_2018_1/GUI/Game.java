@@ -9,15 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Canvas;
 
-public class Game extends JFrame {
+public class Game extends JFrame implements Runnable{
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+
 			public void run() {
 				try {
 					Game frame = new Game();
@@ -26,12 +22,7 @@ public class Game extends JFrame {
 					e.printStackTrace();
 				}
 			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public Game() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 854, 589);

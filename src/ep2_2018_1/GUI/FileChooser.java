@@ -1,11 +1,14 @@
 package ep2_2018_1.GUI;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -13,41 +16,14 @@ import javax.swing.JFileChooser;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.Canvas;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 
-public class FileChooser extends JFrame implements Runnable{
+public class FileChooser extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldPath;
-	private JTextField textField_1;
-	private JButton btnComear;
 
-
-			public void run() {
-				try {
-					FileChooser frame = new FileChooser();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public FileChooser() {
-		FileReader filereader = new FileReader();
-		getContentPane().setLayout(null);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(71, 234, 218, 21);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 594, 388);
 		contentPane = new JPanel();
@@ -56,12 +32,17 @@ public class FileChooser extends JFrame implements Runnable{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblChooseMap = new JLabel("New label");
+		lblChooseMap.setIcon(new ImageIcon(FileChooser.class.getResource("/ep2_2018_1/images/chooseyourmap.jpg")));
+		lblChooseMap.setBounds(25, 11, 521, 157);
+		contentPane.add(lblChooseMap);
+		
 		textFieldPath = new JTextField();
-		textFieldPath.setBounds(101, 239, 272, 20);
+		textFieldPath.setBounds(68, 232, 369, 20);
 		contentPane.add(textFieldPath);
 		textFieldPath.setColumns(10);
 		
-		JButton btnChoose = new JButton("Escolher ");
+		JButton btnChoose = new JButton("Escolher");
 		btnChoose.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				btnChooseActionPerformed(evt);
@@ -73,21 +54,34 @@ public class FileChooser extends JFrame implements Runnable{
 				choosingFile.showOpenDialog(null);
 				File file = choosingFile.getSelectedFile();
 				textFieldPath.setText(file.getPath());
+				FileReader filereader = new FileReader();
 				filereader.setPath(file.getPath());
 			}
 		});
-		btnChoose.setBounds(383, 238, 89, 23);
+
+		btnChoose.setBounds(447, 231, 89, 23);
 		contentPane.add(btnChoose);
 		
-		btnComear = new JButton("Come\u00E7ar!");
-		btnComear.setBounds(221, 315, 89, 23);
-		contentPane.add(btnComear);
+		JButton btnAdvance = new JButton("Avançar");
+		btnAdvance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Login login = new Login();
+				login.setVisible(true);
+				dispose();
+			}
+		});
+		btnAdvance.setBounds(231, 315, 89, 23);
+		contentPane.add(btnAdvance);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(FileChooser.class.getResource("/ep2_2018_1/images/chooseyourmap.jpg")));
-		lblNewLabel.setBounds(10, 23, 521, 157);
-		contentPane.add(lblNewLabel);
-                              
-
+		JButton btnBack = new JButton("Voltar");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainMenu mainmenu = new MainMenu();
+				mainmenu.setVisible(true);
+				dispose();
+			}
+		});
+		btnBack.setBounds(25, 315, 89, 23);
+		contentPane.add(btnBack);
 	}
 }

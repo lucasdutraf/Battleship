@@ -1,6 +1,11 @@
 package ep2_2018_1.GUI;
 
-public class FileReader extends FileChooser implements Runnable{
+import java.nio.file.Paths;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class FileReader implements Runnable{
 	
 	private String Path;
 	
@@ -14,6 +19,14 @@ public class FileReader extends FileChooser implements Runnable{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
+		Path path = Paths.get(getPath());
+		try {
+			byte[] map = Files.readAllBytes(path);
+			String reading = new String(map);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
