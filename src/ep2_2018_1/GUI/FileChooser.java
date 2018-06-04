@@ -1,8 +1,6 @@
 package ep2_2018_1.GUI;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -24,6 +22,7 @@ public class FileChooser extends JFrame {
 
 	
 	public FileChooser() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 594, 388);
 		contentPane = new JPanel();
@@ -31,6 +30,8 @@ public class FileChooser extends JFrame {
 		contentPane.setBackground(new Color(127, 255, 212));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
+
 		
 		JLabel lblChooseMap = new JLabel("New label");
 		lblChooseMap.setIcon(new ImageIcon(FileChooser.class.getResource("/ep2_2018_1/images/chooseyourmap.jpg")));
@@ -49,13 +50,7 @@ public class FileChooser extends JFrame {
 			}
 
 			private void btnChooseActionPerformed(ActionEvent evt) {
-				JFileChooser choosingFile = new JFileChooser();
-				choosingFile.setFileSelectionMode(JFileChooser.FILES_ONLY);
-				choosingFile.showOpenDialog(null);
-				File file = choosingFile.getSelectedFile();
-				textFieldPath.setText(file.getPath());
-				FileReader filereader = new FileReader();
-				filereader.setPath(file.getPath());
+				setPathInfo();
 			}
 		});
 
@@ -83,5 +78,17 @@ public class FileChooser extends JFrame {
 		});
 		btnBack.setBounds(25, 315, 89, 23);
 		contentPane.add(btnBack);
+		
 	}
+	
+	public void setPathInfo() {
+		JFileChooser choosingFile = new JFileChooser();
+		choosingFile.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		choosingFile.showOpenDialog(null);
+		File file = choosingFile.getSelectedFile();
+		textFieldPath.setText(file.getAbsolutePath());
+		FileReader filereader = new FileReader();
+		filereader.setPath(file.getAbsolutePath());
+	}
+	
 }

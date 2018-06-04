@@ -1,11 +1,22 @@
 package ep2_2018_1.GUI;
 
-import java.nio.file.Paths;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
-public class FileReader implements Runnable{
+
+public class FileReader {
+	
+	private int WidthInt;
+	
+	private int HeightInt;
+	
+	private int Matrix = 0;
+	
+	private int LinesAlreadyRead = 1;
 	
 	private String Path;
 	
@@ -16,19 +27,62 @@ public class FileReader implements Runnable{
 		this.Path = Path;
 	}
 	
-	@Override
-	public void run() {
+	public FileReader() {
 		// TODO Auto-generated method stub
-		Path path = Paths.get(getPath());
 		try {
-			byte[] map = Files.readAllBytes(path);
-			String reading = new String(map);
+			
+			InputStream inputstream = new FileInputStream(getPath());
+			InputStreamReader inputstreamreader = new InputStreamReader(inputstream);
+			BufferedReader bufferreader = new BufferedReader(inputstreamreader);
+			
+			String line = bufferreader.readLine();
+			LinesAlreadyRead++;
+		
+			while(line != null) {
+				
+				if(LinesAlreadyRead == 2) {
+					
+					String size = bufferreader.readLine();
+					String sizeArray[] = size.split(" ");
+					String WidthString = sizeArray[0];
+					String HeightString = sizeArray[1];
+					
+					WidthInt = Integer.parseInt(sizeArray[0]);
+					HeightInt = Integer.parseInt(sizeArray[1]);
+					
+				}
+				
+				if(LinesAlreadyRead >= 5 && LinesAlreadyRead < 5 + HeightInt) {
+					
+					char[] ValuesMatrix = line.toCharArray();
+					
+					for(int aux = 0; aux < ValuesMatrix.length; aux++) {
+						
+						Matrix = Integer.parseInt(String.valueOf(ValuesMatrix[aux]));
+						
+					}
+					
+					
+					
+					
+				}
+				
+				
+				LinesAlreadyRead++;	
+			}
 			
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
 	
-
+	public int getMatrix() {
+		return this.Matrix;
+	}
 }
+
+	
+
+

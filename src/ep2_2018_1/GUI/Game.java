@@ -31,6 +31,8 @@ public class Game extends JFrame implements Runnable{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
+
 		
 		Canvas canvas = new Canvas();
 		canvas.setBounds(166, 126, 461, 280);

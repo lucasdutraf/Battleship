@@ -28,6 +28,7 @@ public class InstructionsOption extends JFrame{
 		contentPane.setBackground(new Color(127, 255, 212));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JLabel lblOnePosition = new JLabel("Ataca uma posi\u00E7\u00E3o do tabuleiro.");
 		lblOnePosition.setFont(new Font("Yu Gothic", Font.PLAIN, 14));

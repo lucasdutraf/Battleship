@@ -30,6 +30,8 @@ public class Login extends JFrame{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
+
 		
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Top Secret", Font.PLAIN, 14));
@@ -81,11 +83,10 @@ public class Login extends JFrame{
 		JButton btnJogar = new JButton("Jogar");
 		btnJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				FileChooser fc = new FileChooser();
-//				fc.setVisible(true);
-//				dispose();
-				FileChooser filechooser = new FileChooser();
-				filechooser.setVisible(true);
+				//TODO start readfile thread
+				Game game = new Game();
+				game.setVisible(true);
+				dispose();
 			}
 		});
 		btnJogar.setFont(new Font("Top Secret", Font.PLAIN, 11));
