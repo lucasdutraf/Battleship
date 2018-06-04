@@ -8,13 +8,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 
-public class FileReader {
+public class FileReader extends GameCanvas{
 	
-	private int WidthInt;
 	
-	private int HeightInt;
-	
-	private int Matrix = 0;
+	private GamePlayerActions gameplayeractions;
 	
 	private int LinesAlreadyRead = 1;
 	
