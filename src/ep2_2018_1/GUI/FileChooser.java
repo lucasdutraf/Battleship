@@ -19,6 +19,8 @@ public class FileChooser extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldPath;
+	
+	public static String PathLoader;
 
 	
 	public FileChooser() {
@@ -60,6 +62,8 @@ public class FileChooser extends JFrame {
 		JButton btnAdvance = new JButton("Avançar");
 		btnAdvance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				FileReader filereader = new FileReader();
+				filereader.setPath(PathLoader);
 				Login login = new Login();
 				login.setVisible(true);
 				dispose();
@@ -87,8 +91,7 @@ public class FileChooser extends JFrame {
 		choosingFile.showOpenDialog(null);
 		File file = choosingFile.getSelectedFile();
 		textFieldPath.setText(file.getAbsolutePath());
-		FileReader filereader = new FileReader();
-		filereader.setPath(file.getAbsolutePath());
+		PathLoader = file.getAbsolutePath();
 	}
 	
 }

@@ -2,6 +2,7 @@ package ep2_2018_1.GUI;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
+import java.awt.Image;
 
 import javax.swing.ImageIcon; 
 
@@ -12,11 +13,11 @@ public class GameCanvas extends Canvas{
 	
 	protected static int HeightInt;
 	
-	public static final int MINIMUN_WIDHT = 28;
+	public static final int RECT_WIDTH = 80;
 	
-	public static final int MINIMUN_HEIGHT = 28;
+	public static final int RECT_HEIGHT = 80;
 	
-	public static final int MARGIN = 50;
+	public static final int MARGIN = 0;
 	
 	protected int Matrix = 0;
 	
@@ -92,6 +93,25 @@ public class GameCanvas extends Canvas{
 		}
 		
 		//Prepare an ImageIcon
+		ImageIcon icon =  new ImageIcon("images/water_" + String.valueOf(animationCounter) + ".jpg");
+		ImageIcon WrongShot =  new ImageIcon("images/wrongshot.jpg");
+		ImageIcon RightShot =  new ImageIcon("images/rightshot.jpg");
+		ImageIcon VerifyRightShot =  new ImageIcon("images/verifyrightshot.jpg");
+		ImageIcon VerifyWrongShot =  new ImageIcon("images/verifywrongshot.jpg");
+		// Prepare img obj to be used
+		final Image standard = icon.getImage();
+		final Image WrongS = WrongShot.getImage();
+		final Image RightS = RightShot.getImage();
+		final Image VerifiedRight = VerifyRightShot.getImage();
+		final Image VerifiedWrong = VerifyWrongShot.getImage();
+		
+		for(int x = 0; x < GameCanvas.WidthInt; x++) {
+			for(int y = 0; y < GameCanvas.HeightInt; y++) {
+				g.drawImage(standard, x * RECT_WIDTH + MARGIN, y * RECT_HEIGHT+MARGIN, RECT_WIDTH, RECT_HEIGHT, null);
+			}
+		}
+		
+		
 		
 		
 		
