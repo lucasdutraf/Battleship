@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Scanner;
 
 
 public class FileReaderClass {
@@ -15,13 +16,15 @@ public class FileReaderClass {
 		
 	public GameCanvas gamecanvas = new GameCanvas();
 	
-	private int LinesAlreadyRead = 1;
+	private int LinesAlreadyRead = 0;
 	
-	private int A = 0;
+	private int height_helper = 0;
 	
-	private int L = 0;
+	private int width_helper = 0;
 	
-	private int fishesInTheLake[] = new int [5];
+	private int matrix_helper = 0;
+	
+	private int fishesInTheLake[] = new int [10];
 		
 	private String Path;
 	
@@ -36,49 +39,60 @@ public class FileReaderClass {
 		//readFile();
 	}
 	public void readFile(String Path) {
+		
 		try {
 			
 			FileReader fr = new FileReader(Path);
 			BufferedReader bufferreader = new BufferedReader(fr);
 			
+			String line;
+			
 			int aux_b = 0;
 			int i = 0;
-			
-			String line = bufferreader.readLine();
+			bufferreader.readLine();
 			LinesAlreadyRead++;
+			line = bufferreader.readLine();
+		
+			Scanner sysInput = new Scanner(line);
+			width_helper = sysInput.nextInt();
+			gamecanvas.setWidth(width_helper);
+			height_helper = sysInput.nextInt();
+			gamecanvas.setHeight(height_helper);
+			LinesAlreadyRead++;
+			sysInput.close();
 			
-			while(line != null) {
+			bufferreader.readLine();
+			LinesAlreadyRead++;
+			bufferreader.readLine();
+			LinesAlreadyRead++;
+			try {
+				while(line != null) {
 				
-				if(LinesAlreadyRead == 2) {
-					
-					String[] sizeArray = line.split(" ");
-					this.L = Integer.parseInt(sizeArray[0]);
-					this.A = Integer.parseInt(sizeArray[1]);
-					
-					gamecanvas.setWidth(this.L);
-					gamecanvas.setHeight(this.A);
-					
-				}
 				
-				if(LinesAlreadyRead >= 5 && LinesAlreadyRead < 5 + this.A) {
-					
-					char[] ValuesMatrix = line.toCharArray();
-					
-					for(int aux = 0; aux < ValuesMatrix.length; aux++) {
-						gamecanvas.setMatrix(Integer.parseInt(String.valueOf(ValuesMatrix[aux])));
-						gamecanvas.setCanvasMatrixBuilder(aux, aux_b, gamecanvas.getMatrix());
+					if(LinesAlreadyRead >= 5 && LinesAlreadyRead < 5 + this.height_helper) {
+											
+						char[] ValuesMatrix = line.toCharArray();
+						
+						for(int aux = 0; aux < ValuesMatrix.length; aux++) {
+							this.matrix_helper = Integer.parseInt(String.valueOf(ValuesMatrix[aux]));
+							gamecanvas.setCanvasMatrixBuilder(aux, aux_b, this.matrix_helper);
+						}
+						aux_b++;
 					}
-					aux_b++;
-				}
-				if (LinesAlreadyRead >= this.A + 7) {
-					String fishes[] = line.split(" ");
-					this.fishesInTheLake[i] = Integer.parseInt(fishes[1]);
-					i++;
 					
+					if (LinesAlreadyRead >= this.height_helper + 7) {
+						String fishes[] = line.split(" ");
+						this.fishesInTheLake[i] = Integer.parseInt(fishes[1]);
+						i++;
+						
+					}
+					line = bufferreader.readLine();
+					LinesAlreadyRead++;	
 				}
-				line = bufferreader.readLine();
-				LinesAlreadyRead++;	
-	
+			}
+
+			catch(Exception e) {
+				System.out.println("Ocorreu um erro durante o processamento de dados ;-; ");
 			}
 			
 			bufferreader.close();

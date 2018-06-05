@@ -39,8 +39,8 @@ public class MainMenu extends JFrame{
 		JButton btnPlay = new JButton("JOGAR");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				filechooser.readFile();
-				filechooser.setVisible(false);
+				filechooser.setVisible(true);
+				dispose();
 			}
 		});
 		btnPlay.setFont(new Font("Top Secret", Font.PLAIN, 11));

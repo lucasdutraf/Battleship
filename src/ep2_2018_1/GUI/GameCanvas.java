@@ -9,9 +9,9 @@ import javax.swing.ImageIcon;
 public class GameCanvas extends Canvas{
 	
 	
-	protected int WidthInt = 1000;
+	private int WidthInt;
 	
-	protected int HeightInt = 1000;
+	private int HeightInt;
 	
 	public static final int RECT_WIDTH = 80;
 	
@@ -39,30 +39,40 @@ public class GameCanvas extends Canvas{
 	public void setNumberOfSSFishes(int numberOfSSFishes) {
 		this.NumberOfSSFishes = numberOfSSFishes;
 	}
+	
+	
 	public int getNumberOfSFishes() {
 		return NumberOfSFishes;
 	}
 	public void setNumberOfSFishes(int numberOfSFishes) {
 		this.NumberOfSFishes = numberOfSFishes;
 	}
+	
+	
 	public int getNumberOfMFishes() {
 		return NumberOfMFishes;
 	}
 	public void setNumberOfMFishes(int numberOfMFishes) {
 		this.NumberOfMFishes = numberOfMFishes;
 	}
+	
+	
 	public int getNumberOfLFishes() {
 		return NumberOfLFishes;
 	}
 	public void setNumberOfLFishes(int numberOfLFishes) {
 		this.NumberOfLFishes = numberOfLFishes;
 	}
+	
+	
 	public int getNumberOfELFishes() {
 		return NumberOfELFishes;
 	}
 	public void setNumberOfELFishes(int numberOfELFishes) {
 		this.NumberOfELFishes = numberOfELFishes;
 	}
+	
+	
 	public void setMatrix(int matrix) {
 		this.Matrix = matrix;
 	}

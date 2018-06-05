@@ -23,6 +23,7 @@ public class FileChooser extends JFrame {
 	public static String PathLoader = " ";
 	
 	public FileReaderClass fileclass = new FileReaderClass();
+	public GameCanvas gg = new GameCanvas();
 
 	
 	public FileChooser() {
@@ -70,7 +71,7 @@ public class FileChooser extends JFrame {
 				dispose();
 			}
 		});
-		btnAdvance.setBounds(231, 315, 89, 23);
+		btnAdvance.setBounds(412, 315, 89, 23);
 		contentPane.add(btnAdvance);
 		
 		JButton btnBack = new JButton("Voltar");
@@ -84,20 +85,20 @@ public class FileChooser extends JFrame {
 		btnBack.setBounds(25, 315, 89, 23);
 		contentPane.add(btnBack);
 		
-		JButton btnTeetete = new JButton("teetete");
-		btnTeetete.addActionListener(new ActionListener() {
+		JButton btnpProccess = new JButton("Processar");
+		btnpProccess.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println(PathLoader);
 				fileclass.setPath(PathLoader);
 				System.out.println(fileclass.getPath());
-				//fileclass.readFile();
-				
-//				filereader.setPath(PathLoader);
-//				filereader.readFile();
+				fileclass.readFile(PathLoader);
+				System.out.println("ALTURAAAAA" + gg.getHeight());
+				System.out.println("SERA" + gg.getWidth());
+
 			}
 		});
-		btnTeetete.setBounds(231, 276, 89, 23);
-		contentPane.add(btnTeetete);
+		btnpProccess.setBounds(221, 315, 99, 23);
+		contentPane.add(btnpProccess);
 		
 	}
 	
