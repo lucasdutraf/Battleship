@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -20,11 +21,19 @@ public class FileChooser extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldPath;
 	
-	public static String PathLoader = " ";
+	private String PathLoader = " ";
 	
 	public FileReaderClass fileclass = new FileReaderClass();
-	public GameCanvas gg = new GameCanvas();
 
+
+	
+	public void setPathLoader(String PathLoader) {
+		this.PathLoader = PathLoader;
+	}
+	
+	public String getPathLoader() {
+		return PathLoader;
+	}
 	
 	public FileChooser() {
 		
@@ -69,6 +78,8 @@ public class FileChooser extends JFrame {
 				Login login = new Login();
 				login.setVisible(true);
 				dispose();
+				JOptionPane.showMessageDialog(null, "A aplicação foi estruturada, porém durante o teste a aplicação quebrou");
+
 			}
 		});
 		btnAdvance.setBounds(412, 315, 89, 23);
@@ -92,9 +103,6 @@ public class FileChooser extends JFrame {
 				fileclass.setPath(PathLoader);
 				System.out.println(fileclass.getPath());
 				fileclass.readFile(PathLoader);
-				System.out.println("ALTURAAAAA" + gg.getHeight());
-				System.out.println("SERA" + gg.getWidth());
-
 			}
 		});
 		btnpProccess.setBounds(221, 315, 99, 23);
@@ -109,7 +117,6 @@ public class FileChooser extends JFrame {
 		File file = choosingFile.getSelectedFile();
 		textFieldPath.setText(file.getAbsolutePath());
 		PathLoader = file.getAbsolutePath();
-		System.out.println("TESTEEEEEE");
 		System.out.println(PathLoader);
 
 

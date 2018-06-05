@@ -16,7 +16,6 @@ public class MainMenu extends JFrame{
 	
 	public final FileChooser filechooser = new FileChooser();
 
-	public GameCanvas a = new GameCanvas();
 	
 	private JPanel contentPane;
 
@@ -76,14 +75,6 @@ public class MainMenu extends JFrame{
 		lblTheme.setBounds(115, 35, 585, 191);
 		contentPane.add(lblTheme);
 		
-		JButton btnDfsdfas = new JButton("dfsdfas");
-		btnDfsdfas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println(a.getHeight());
-			}
-		});
-		btnDfsdfas.setBounds(27, 324, 89, 23);
-		contentPane.add(btnDfsdfas);
 		
 	}
 }

@@ -16,6 +16,7 @@ public class Game extends JFrame{
 	private GameCanvas canvas = new GameCanvas();
 	CanvasThread updateScreenThread = new CanvasThread(canvas);
 
+	public PlayerActions pa;
 
 	public Game() {
 		
@@ -28,7 +29,7 @@ public class Game extends JFrame{
 		
 		updateScreenThread.start();
 	
-	
+		pa.actions();
 	
 	}
 }

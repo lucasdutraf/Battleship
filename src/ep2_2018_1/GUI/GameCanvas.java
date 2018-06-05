@@ -19,17 +19,17 @@ public class GameCanvas extends Canvas{
 	
 	public static final int MARGIN = 0;
 	
-	protected int Matrix = 0;
+	private int Matrix = 0;
 	
-	protected int NumberOfSSFishes = 0;
+	private int NumberOfSSFishes = 0;
 	
-	protected int NumberOfSFishes = 0;
+	private int NumberOfSFishes = 0;
 	
-	protected int NumberOfMFishes = 0;
+	private int NumberOfMFishes = 0;
 	
-	protected int NumberOfLFishes = 0;
+	private int NumberOfLFishes = 0;
 	
-	protected int NumberOfELFishes = 0;
+	private int NumberOfELFishes = 0;
 	
 	public static final String SSType = "Pititinga";
 
@@ -89,7 +89,7 @@ public class GameCanvas extends Canvas{
 	
 	private int animationCounterDirection = 1;
 	
-	private int [][] CanvasMatrixBuilder = new int [WidthInt][HeightInt];
+	private int [][] explosionMatrix = new int [WidthInt][HeightInt];
 	
 	public void setWidth(int WidthInt) {
 		this.WidthInt = WidthInt;
@@ -110,11 +110,11 @@ public class GameCanvas extends Canvas{
 	}
 	
 	public void setCanvasMatrixBuilder(int x_pos, int y_pos, int Matrix) {
-		this.CanvasMatrixBuilder[x_pos][y_pos] = Matrix;
+		this.explosionMatrix[x_pos][y_pos] = Matrix;
 	}
 	
-	public int [][] getCanvasMatrix(){
-		return CanvasMatrixBuilder;
+	public int getCanvasMatrix(int x, int y){
+		return explosionMatrix[x][y];
 	}
 	
 	public void paint(Graphics g) {
@@ -152,25 +152,27 @@ public class GameCanvas extends Canvas{
 		for(int x = 0; x < this.WidthInt; x++) {
 			for(int y = 0; y < this.HeightInt; y++) {
 				g.drawImage(standard, x * RECT_WIDTH + MARGIN, y * RECT_HEIGHT+MARGIN, RECT_WIDTH, RECT_HEIGHT, null);
+				if(explosionMatrix[x][y] == 6) {
+					g.drawImage(WrongS, x*RECT_WIDTH+MARGIN, y*RECT_HEIGHT+MARGIN, RECT_WIDTH, RECT_HEIGHT, null);
+				}
+				if(explosionMatrix[x][y] == 7) {
+					g.drawImage(RightS, x*RECT_WIDTH+MARGIN, y*RECT_HEIGHT+MARGIN, RECT_WIDTH, RECT_HEIGHT, null);
+				}
+				if(explosionMatrix[x][y] == 8) {
+					g.drawImage(VerifiedRight, x*RECT_WIDTH+MARGIN, y*RECT_HEIGHT+MARGIN, RECT_WIDTH, RECT_HEIGHT, null);
+				}
+				if(explosionMatrix[x][y] == 9) {
+					g.drawImage(VerifiedWrong, x*RECT_WIDTH+MARGIN, y*RECT_HEIGHT+MARGIN, RECT_WIDTH, RECT_HEIGHT, null);
+				}
+
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+	public void setShot(int x_pos, int y_pos) {
+		// TODO Auto-generated method stub
+		explosionMatrix[x_pos][y_pos] = 6;
+	}
 	
 }
