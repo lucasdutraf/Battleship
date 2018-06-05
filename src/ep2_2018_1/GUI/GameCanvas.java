@@ -22,6 +22,16 @@ public class GameCanvas extends Canvas{
 	
 	protected int NumberOfSLFishes = 0;
 	
+	public static final String SSType = "Surubim";
+
+	public static final String SType = "Surubim";
+	
+	public static final String MType = "Surubim";
+	
+	public static final String LType = "Cavala";
+	
+	public static final String SLType = "Surubim";
+	
 	private int [][] CanvasMatrixBuilder = new int [WidthInt][HeightInt];
 	
 	public void setWidth(int WidthInt) {
@@ -38,9 +48,16 @@ public class GameCanvas extends Canvas{
 		return HeightInt;
 	}
 	
+	public int getMatrix() {
+		return this.Matrix;
+	}
 	
 	public void setCanvasMatrixBuilder(int x_pos, int y_pos, int Matrix) {
 		this.CanvasMatrixBuilder[x_pos][y_pos] = Matrix;
+	}
+	
+	public int [][] getCanvasMatrix(){
+		return CanvasMatrixBuilder;
 	}
 	
 	public void paint(Graphics g) {
