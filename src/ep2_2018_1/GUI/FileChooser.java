@@ -20,7 +20,9 @@ public class FileChooser extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldPath;
 	
-	public static String PathLoader;
+	public static String PathLoader = " ";
+	
+	public FileReaderClass fileclass = new FileReaderClass();
 
 	
 	public FileChooser() {
@@ -36,7 +38,7 @@ public class FileChooser extends JFrame {
 
 		
 		JLabel lblChooseMap = new JLabel("New label");
-		lblChooseMap.setIcon(new ImageIcon(FileChooser.class.getResource("/ep2_2018_1/images/chooseyourmap.jpg")));
+		lblChooseMap.setIcon(new ImageIcon(FileChooser.class.getResource("/ep2_2018_1/assets/chooseyourmap.jpg")));
 		lblChooseMap.setBounds(25, 11, 521, 157);
 		contentPane.add(lblChooseMap);
 		
@@ -62,8 +64,7 @@ public class FileChooser extends JFrame {
 		JButton btnAdvance = new JButton("Avançar");
 		btnAdvance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FileReader filereader = new FileReader();
-				filereader.setPath(PathLoader);
+
 				Login login = new Login();
 				login.setVisible(true);
 				dispose();
@@ -83,15 +84,34 @@ public class FileChooser extends JFrame {
 		btnBack.setBounds(25, 315, 89, 23);
 		contentPane.add(btnBack);
 		
+		JButton btnTeetete = new JButton("teetete");
+		btnTeetete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println(PathLoader);
+				fileclass.setPath(PathLoader);
+				System.out.println(fileclass.getPath());
+				//fileclass.readFile();
+				
+//				filereader.setPath(PathLoader);
+//				filereader.readFile();
+			}
+		});
+		btnTeetete.setBounds(231, 276, 89, 23);
+		contentPane.add(btnTeetete);
+		
 	}
 	
 	public void setPathInfo() {
 		JFileChooser choosingFile = new JFileChooser();
 		choosingFile.setFileSelectionMode(JFileChooser.FILES_ONLY);
-		choosingFile.showOpenDialog(null);
+		choosingFile.showOpenDialog(this);
 		File file = choosingFile.getSelectedFile();
 		textFieldPath.setText(file.getAbsolutePath());
 		PathLoader = file.getAbsolutePath();
+		System.out.println("TESTEEEEEE");
+		System.out.println(PathLoader);
+
+
+		
 	}
-	
 }

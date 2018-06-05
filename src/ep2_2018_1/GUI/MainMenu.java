@@ -13,7 +13,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class MainMenu extends JFrame{
+	
+	public final FileChooser filechooser = new FileChooser();
 
+	public GameCanvas a = new GameCanvas();
+	
 	private JPanel contentPane;
 
 
@@ -35,9 +39,8 @@ public class MainMenu extends JFrame{
 		JButton btnPlay = new JButton("JOGAR");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				FileChooser filechooser = new FileChooser();
-				filechooser.setVisible(true);
-				dispose();
+				filechooser.readFile();
+				filechooser.setVisible(false);
 			}
 		});
 		btnPlay.setFont(new Font("Top Secret", Font.PLAIN, 11));
@@ -69,9 +72,18 @@ public class MainMenu extends JFrame{
 		contentPane.add(footer);
 		
 		JLabel lblTheme = new JLabel("New label");
-		lblTheme.setIcon(new ImageIcon(MainMenu.class.getResource("/ep2_2018_1/images/Theme.png")));
+		lblTheme.setIcon(new ImageIcon(MainMenu.class.getResource("/ep2_2018_1/assets/Theme.png")));
 		lblTheme.setBounds(115, 35, 585, 191);
 		contentPane.add(lblTheme);
+		
+		JButton btnDfsdfas = new JButton("dfsdfas");
+		btnDfsdfas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println(a.getHeight());
+			}
+		});
+		btnDfsdfas.setBounds(27, 324, 89, 23);
+		contentPane.add(btnDfsdfas);
 		
 	}
 }

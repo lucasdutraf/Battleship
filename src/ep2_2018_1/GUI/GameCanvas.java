@@ -9,9 +9,9 @@ import javax.swing.ImageIcon;
 public class GameCanvas extends Canvas{
 	
 	
-	protected static int WidthInt;
+	protected int WidthInt = 1000;
 	
-	protected static int HeightInt;
+	protected int HeightInt = 1000;
 	
 	public static final int RECT_WIDTH = 80;
 	
@@ -29,9 +29,43 @@ public class GameCanvas extends Canvas{
 	
 	protected int NumberOfLFishes = 0;
 	
-	protected int NumberOfSLFishes = 0;
+	protected int NumberOfELFishes = 0;
 	
 	public static final String SSType = "Pititinga";
+
+	public int getNumberOfSSFishes() {
+		return NumberOfSSFishes;
+	}
+	public void setNumberOfSSFishes(int numberOfSSFishes) {
+		this.NumberOfSSFishes = numberOfSSFishes;
+	}
+	public int getNumberOfSFishes() {
+		return NumberOfSFishes;
+	}
+	public void setNumberOfSFishes(int numberOfSFishes) {
+		this.NumberOfSFishes = numberOfSFishes;
+	}
+	public int getNumberOfMFishes() {
+		return NumberOfMFishes;
+	}
+	public void setNumberOfMFishes(int numberOfMFishes) {
+		this.NumberOfMFishes = numberOfMFishes;
+	}
+	public int getNumberOfLFishes() {
+		return NumberOfLFishes;
+	}
+	public void setNumberOfLFishes(int numberOfLFishes) {
+		this.NumberOfLFishes = numberOfLFishes;
+	}
+	public int getNumberOfELFishes() {
+		return NumberOfELFishes;
+	}
+	public void setNumberOfELFishes(int numberOfELFishes) {
+		this.NumberOfELFishes = numberOfELFishes;
+	}
+	public void setMatrix(int matrix) {
+		this.Matrix = matrix;
+	}
 
 	public static final String SType = "Sardinha";
 	
@@ -48,14 +82,14 @@ public class GameCanvas extends Canvas{
 	private int [][] CanvasMatrixBuilder = new int [WidthInt][HeightInt];
 	
 	public void setWidth(int WidthInt) {
-		GameCanvas.WidthInt = WidthInt;
+		this.WidthInt = WidthInt;
 	}
 	public int getWidth() {
 		return WidthInt;
 	}
 	
 	public void setHeight(int HeightInt) {
-		GameCanvas.HeightInt = HeightInt;
+		this.HeightInt = HeightInt;
 	}
 	public int getHeight() {
 		return HeightInt;
@@ -105,8 +139,8 @@ public class GameCanvas extends Canvas{
 		final Image VerifiedRight = VerifyRightShot.getImage();
 		final Image VerifiedWrong = VerifyWrongShot.getImage();
 		
-		for(int x = 0; x < GameCanvas.WidthInt; x++) {
-			for(int y = 0; y < GameCanvas.HeightInt; y++) {
+		for(int x = 0; x < this.WidthInt; x++) {
+			for(int y = 0; y < this.HeightInt; y++) {
 				g.drawImage(standard, x * RECT_WIDTH + MARGIN, y * RECT_HEIGHT+MARGIN, RECT_WIDTH, RECT_HEIGHT, null);
 			}
 		}

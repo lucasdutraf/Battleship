@@ -20,7 +20,9 @@ public class Login extends JFrame{
 	private JPanel contentPane;
 	private JTextField nameField;
 	private JTextField nickField;
-
+	
+	public GameCanvas gc = new GameCanvas();
+	
 	public Login() {
 		setBackground(new Color(100, 149, 237));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,5 +99,15 @@ public class Login extends JFrame{
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Iniciante", "Experiente", "Insano"}));
 		comboBox.setBounds(216, 242, 188, 20);
 		contentPane.add(comboBox);
+		
+		JButton btnYhrtyh = new JButton("yhrtyh");
+		btnYhrtyh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println(gc.getWidth());
+				System.out.println(gc.getHeight());
+			}
+		});
+		btnYhrtyh.setBounds(338, 315, 89, 23);
+		contentPane.add(btnYhrtyh);
 	}
 }

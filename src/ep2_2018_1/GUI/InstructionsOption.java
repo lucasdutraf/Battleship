@@ -73,22 +73,22 @@ public class InstructionsOption extends JFrame{
 		contentPane.add(btnSair);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(InstructionsOption.class.getResource("/ep2_2018_1/images/vara.png")));
+		lblNewLabel.setIcon(new ImageIcon(InstructionsOption.class.getResource("/ep2_2018_1/assets/vara.png")));
 		lblNewLabel.setBounds(139, 116, 50, 50);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(InstructionsOption.class.getResource("/ep2_2018_1/images/redepesca.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(InstructionsOption.class.getResource("/ep2_2018_1/assets/redepesca.png")));
 		lblNewLabel_1.setBounds(139, 285, 50, 50);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon(InstructionsOption.class.getResource("/ep2_2018_1/images/redechinesa.jpg")));
+		lblNewLabel_2.setIcon(new ImageIcon(InstructionsOption.class.getResource("/ep2_2018_1/assets/redechinesa.jpg")));
 		lblNewLabel_2.setBounds(139, 369, 50, 50);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setIcon(new ImageIcon(InstructionsOption.class.getResource("/ep2_2018_1/images/lantern.png")));
+		lblNewLabel_3.setIcon(new ImageIcon(InstructionsOption.class.getResource("/ep2_2018_1/assets/lantern.png")));
 		lblNewLabel_3.setBounds(139, 204, 50, 50);
 		contentPane.add(lblNewLabel_3);
 		
