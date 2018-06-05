@@ -10,9 +10,7 @@ import java.io.InputStreamReader;
 
 public class FileReader extends GameCanvas{
 	
-	
-	private GamePlayerActions gameplayeractions;
-	
+		
 	private int LinesAlreadyRead = 1;
 	
 	private String line;
@@ -36,6 +34,8 @@ public class FileReader extends GameCanvas{
 	
 	public FileReader() {
 		// TODO Auto-generated method stub
+	}
+	public void readFile() {
 		try {
 			
 			GameCanvas gamecanvas = new GameCanvas();
@@ -84,20 +84,22 @@ public class FileReader extends GameCanvas{
 				}
 				if(LinesAlreadyRead == 12 + HeightInt) {
 					convertStringToInt(NumberOfSLFishes);
+					System.out.println("passou aqui 1");
 				}
 				
 				line = bufferreader.readLine();
 				LinesAlreadyRead++;	
 	
 			}
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+					
 		}
-		
+		catch (IOException e) {
+				e.printStackTrace();
+		}
+				
 	}
 }
+
 
 	
 

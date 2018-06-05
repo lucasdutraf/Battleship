@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Canvas;
+import javax.swing.JLabel;
 
 public class Game extends JFrame implements Runnable{
 
@@ -25,17 +26,12 @@ public class Game extends JFrame implements Runnable{
 
 	public Game() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 854, 589);
+		setBounds(100, 100, 1006, 698);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(127, 255, 212));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
-
-		
-		Canvas canvas = new Canvas();
-		canvas.setBounds(166, 126, 461, 280);
-		contentPane.add(canvas);
 	}
 }

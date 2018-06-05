@@ -1,7 +1,9 @@
 package ep2_2018_1.GUI;
 
 import java.awt.Canvas;
-import java.awt.Graphics; 
+import java.awt.Graphics;
+
+import javax.swing.ImageIcon; 
 
 public class GameCanvas extends Canvas{
 	
@@ -9,6 +11,12 @@ public class GameCanvas extends Canvas{
 	protected static int WidthInt;
 	
 	protected static int HeightInt;
+	
+	public static final int MINIMUN_WIDHT = 28;
+	
+	public static final int MINIMUN_HEIGHT = 28;
+	
+	public static final int MARGIN = 50;
 	
 	protected int Matrix = 0;
 	
@@ -22,15 +30,19 @@ public class GameCanvas extends Canvas{
 	
 	protected int NumberOfSLFishes = 0;
 	
-	public static final String SSType = "Surubim";
+	public static final String SSType = "Pititinga";
 
-	public static final String SType = "Surubim";
+	public static final String SType = "Sardinha";
 	
-	public static final String MType = "Surubim";
+	public static final String MType = "Tucunaré";
 	
 	public static final String LType = "Cavala";
 	
 	public static final String SLType = "Surubim";
+	
+	private int animationCounter = 0;
+	
+	private int animationCounterDirection = 1;
 	
 	private int [][] CanvasMatrixBuilder = new int [WidthInt][HeightInt];
 	
@@ -62,7 +74,24 @@ public class GameCanvas extends Canvas{
 	
 	public void paint(Graphics g) {
 		
+		if(animationCounterDirection == 0) {
+			if(animationCounter < 6) {
+				animationCounter++;
+			}
+			else {
+				animationCounterDirection = 1;
+			}
+		}
+		else {
+			if(animationCounter > 0) {
+				animationCounter--;
+			}
+			else {
+				animationCounterDirection = 0;
+			}
+		}
 		
+		//Prepare an ImageIcon
 		
 		
 		
